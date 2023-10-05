@@ -1,6 +1,3 @@
-from unicodedata import category
-
-
 from category import Category
 
 def main():
