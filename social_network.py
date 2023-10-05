@@ -7,5 +7,5 @@ class SocialNetwork:
     def mostrar_socialnetwork():
         pass
 
-pessoa1 = SocialNetwork('Gabriel |','local: Porto Alegre')
+pessoa1 = SocialNetwork('G |','local: Porto Alegre')
 print(pessoa1.name, pessoa1.description)      
