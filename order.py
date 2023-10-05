@@ -8,3 +8,5 @@ class Order:
         self.status = status
         self.client = Cliente
         
+        o1 = Order(134.30, "EM andamento", Client.c1)
+        
