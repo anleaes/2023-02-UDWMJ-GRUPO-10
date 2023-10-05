@@ -6,3 +6,11 @@ class Cliente:
         self._cell_phone = cell_phone
         self._email = email
         self._gender = gender
+
+        def verificar_email():
+            c1 = Cliente ("Wellington", "Flores", "Rua nao sei o que la", 51900000, "gostosinho@gmail.com", "M")
+            if c1._email == "gostosinho@gmail.com":
+                print("Email verificado é o gostosinho")
+            else:
+                print("Email não verificado")
+            return 
