@@ -8,3 +8,6 @@ class Product:
         self._is_active = is_active
         self._category = Category
 
+        pd1 = Product ("Arroz", "Arroz baratinho", "16/08/1800", True, Category)
+        def mostrarnome ():
+            print(pd1._name)
