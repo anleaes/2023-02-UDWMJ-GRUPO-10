@@ -8,6 +8,6 @@ class OrderItem:
         self._order = Order
         self._product = Product
 
-        oi1 = OrderItem (149, 1.99, Order, Product.pd1)
+        oi1 = OrderItem (149, 1.99, Order, Product)
         def mostrarpreco ():
             print(oi1._unitary_price)
