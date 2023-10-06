@@ -7,5 +7,5 @@ class SocialNetwork:
     def mostrar_socialnetwork():
         pass
 
-pessoa1 = SocialNetwork('G |','local: Porto Alegre')
+pessoa1 = SocialNetwork('Instagram |','Voce pode postar storys, fotos, videos e muito mais!')
 print(pessoa1.name, pessoa1.description)      
