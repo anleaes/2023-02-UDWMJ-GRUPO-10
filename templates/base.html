@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %}Nome do meu App{% endblock title %}</title>
+    <title>{% block title %}Teste{% endblock title %}</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/">Nome do meu App</a>
+        <a class="navbar-brand" href="/">Teste</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,7 +24,7 @@
                         <a class="dropdown-item" href="#">Clientes</a>
                         <a class="dropdown-item" href="#">Pedidos</a>
                         <a class="dropdown-item" href="#">Produtos</a>
-                        <a class="dropdown-item" href="{% url 'categories:add_category' %}">Categorias</a>
+                        <a class="dropdown-item" href="{% url 'categories:list_categories' %}">Categorias</a>
                         <a class="dropdown-item" href="#">Redes Sociais</a>
     
                     </div>
