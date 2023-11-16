@@ -1,6 +1,7 @@
 # 2023-02-UDWMJ-GRUPO-10
 
 # Ao executar o conda e voltar a resposta que nao foi encontrado, executar sempre o comando a seguir (Ajustar o caminho caso necessario):
+# ERRO: 'conda' não é reconhecido como um comando interno ou externo, um programa operável ou um arquivo em lotes.
 
 %windir%\System32\cmd.exe "/K" C:\ProgramData\miniconda3\Scripts\activate.bat C:\ProgramData\miniconda3
 
