@@ -8,7 +8,7 @@ from .forms import UserForm, UserChangeInformationForm
 # Create your views here.
 
 def add_user(request):
-    template_name = 'accounts/add_user.html'
+    template_name = 'usuarios/add_user.html'
     context = {}
     if request.method =='POST':
         form = UserForm(request.POST)
@@ -16,34 +16,34 @@ def add_user(request):
             f = form.save(commit=False)
             f.set_password(f.password)
             f.save()
-            return redirect('accounts:user_login')
+            return redirect('usuarios:user_login')
         else:
-            return redirect('accounts:add_user')
+            return redirect('usuarios:add_user')
     form = UserForm()
     context['form'] = form
     return render(request, template_name, context)   
 
 def user_login(request):
-    template_name = 'accounts/user_login.html'
+    template_name = 'usuarios/user_login.html'
     if request.method =='POST':
-        email = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(email=email, password=password)
+        user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect(request.GET.get('next', '/'))
         else:
-            return redirect('accounts:user_login')
+            return redirect('usuarios:user_login')
     return render(request, template_name, {})
 
 @login_required(login_url='/contas/login/')
 def user_logout(request):
     logout(request)
-    return redirect('accounts:user_login')
+    return redirect('usuarios:user_login')
 
 @login_required(login_url='/contas/login/')
 def user_change_password(request):
-    template_name = 'accounts/user_change_password.html'
+    template_name = 'usuarios/user_change_password.html'
     context = {}
     if request.method == 'POST':
         form = PasswordChangeForm(user=request.user, data=request.POST)
@@ -51,16 +51,16 @@ def user_change_password(request):
             form.save()
             update_session_auth_hash(request, form.user)
         else:
-            return redirect('accounts:user_login')
+            return redirect('usuarios:user_login')
     form = PasswordChangeForm(user=request.user)
     context['form'] = form
     return render(request, template_name, context)
 
 @login_required(login_url='/contas/login/')
-def user_change_information(request, email):
-    template_name = 'accounts/user_change_information.html'
+def user_change_information(request, username):
+    template_name = 'usuarios/user_change_information.html'
     context = {}
-    user = User.objects.get(email=email)
+    user = User.objects.get(username=username)
     if request.method == 'POST':
         form = UserChangeInformationForm(request.POST, instance=user)
         if form.is_valid():
