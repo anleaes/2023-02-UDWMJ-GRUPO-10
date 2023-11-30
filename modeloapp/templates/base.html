@@ -16,7 +16,7 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        
+        {% if user.is_authenticated %}
         <div class="collapse navbar-collapse" id="navbarsExample05">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
@@ -45,7 +45,7 @@
                 </li>
             </ul>
         </div>
-        
+        {% endif %}
     </nav>
 
     {% block body %}
