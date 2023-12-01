@@ -16,7 +16,7 @@
                 {% csrf_token %}
                     <div class="form-group">
                         <label for="{{ form.nota.id_for_label }}">Nota:</label>
-                        {{ form.nota|add_class:"form-control"|attr:"autofocus" }}
+                        {{ form.nota|add_class:"form-control"|attr:"type:text"|attr:"autofocus" }}
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
