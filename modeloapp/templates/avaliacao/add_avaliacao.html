@@ -16,7 +16,7 @@
                 {% csrf_token %}
                     <div class="form-group">
                         <label for="{{ form.nota.id_for_label }}">Nota:</label>
-                        {{ form.nota|add_class:"form-control"|attr:"placeholder:0 a 10" attr:"type:text"|attr:"autofocus" }}
+                        {{ form.nota|add_class:"form-control"|attr:"placeholder:0 a 10" |attr:"type:text"|attr:"autofocus" }}
                     </div>
                     <button type="submit" class="btn btn-primary">Salvar</button>
                 </form>
@@ -26,12 +26,23 @@
 
     <script>
         document.getElementById('formAvaliacao').addEventListener('submit', function(event) {
-            var nota = document.getElementById('id_nota').value; // altere 'id_nota' para o ID real do campo de nota
-            if (nota < 1 || nota > 10) {
-                alert('A nota deve estar entre 1 e 10.');
-                event.preventDefault(); // evita que o formulário seja enviado
+            var notaInput = document.getElementById('{{ form.nota.id_for_label }}');
+            var nota = notaInput.value;
+    
+            // Verifica se a entrada é um número
+            if (isNaN(nota)) {
+                alert('Por favor, digite um número válido para a nota.');
+                event.preventDefault(); // Evita que o formulário seja enviado
+            } else {
+                // Verifica se a nota está no intervalo correto
+                nota = parseFloat(nota);
+                if (nota < 0 || nota > 10) {
+                    alert('A nota deve estar entre 0 e 10.');
+                    event.preventDefault(); // Evita que o formulário seja enviado
+                }
             }
         });
     </script>
+    
 
 {% endblock body %}
