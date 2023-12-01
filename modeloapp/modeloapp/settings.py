@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'widget_tweaks',
     'usuarios.apps.UsuariosConfig',
+    'avaliacao.apps.AvaliacaoConfig',
 ]
 
 MIDDLEWARE = [
