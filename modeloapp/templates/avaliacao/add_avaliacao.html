@@ -1,0 +1,33 @@
+{% block title %}
+    Adicionar Avaliação - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>Avaliação dos Serviços</h1>
+                <form action="" method="POST" id="formAvaliacao">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.nota.id_for_label }}">Nota:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"autofocus" }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('formAvaliacao').addEventListener('submit', function(event) {
+            var nota = document.getElementById('id_nota').value; // altere 'id_nota' para o ID real do campo de nota
+            if (nota < 1 || nota > 10) {
+                alert('A nota deve estar entre 1 e 10.');
+                event.preventDefault(); // evita que o formulário seja enviado
+            }
+        });
+    </script>
+
+{% endblock body %}
