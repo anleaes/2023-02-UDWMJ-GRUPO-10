@@ -21,5 +21,14 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls', namespace='core')),
+    path('contas/', include('usuarios.urls', namespace='usuarios')),
+    path('avaliacao/', include('avaliacao.urls', namespace='avaliacao')),
+    path('servicos/', include('servicos.urls', namespace='servicos')),
+    path('endereco/', include('endereco.urls', namespace='endereco')),
+    path('materiais/', include('materiais.urls', namespace='materiais')),
+    path('atendimento/', include('atendimento.urls', namespace='atendimento')),
+    path('solicitacoes/', include('solicitacoes.urls', namespace='solicitacoes')),
+    path('solicitante/', include('solicitante.urls', namespace='solicitante')),
+    path('departamentos/', include('departamentos.urls', namespace='departamentos')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

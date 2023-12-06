@@ -46,6 +46,14 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'widget_tweaks',
     'usuarios.apps.UsuariosConfig',
+    'avaliacao.apps.AvaliacaoConfig',
+    'endereco.apps.EnderecoConfig',
+    'servicos.apps.ServicosConfig',
+    'materiais.apps.MateriaisConfig',
+    'solicitacoes.apps.SolicitacoesConfig',
+    'atendimento.apps.AtendimentoConfig',
+    'solicitante.apps.SolicitanteConfig',
+    'departamentos.apps.DepartamentosConfig',
 ]
 
 MIDDLEWARE = [

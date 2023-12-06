@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    Lista de Solicitações - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+        <h5><b>Lista de Solicitações</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <br />
+                    <a href="{% url 'solicitacoes:add_solicitacao' %}">Nova Solicitação</a>
+                <br />
+                <br />
+                <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Categoria</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Endereco</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for solicitacao in solicitacoes %}
+                        <tr>
+                            <th scope="row">{{ solicitacao.id }}</th>
+                            <td>{{ solicitacao.categoria }}</td>
+                            <td>{{ solicitacao.descricao }}</td>
+                            <td>
+                                {% for solicitacao_endereco in solicitacao_enderecos %}
+                                    {% if solicitacao_endereco.solicitacao_id == solicitacao.id %}
+                                        <li>{{ solicitacao_endereco.endereco }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <a href="{% url 'solicitacoes:edit_solicitacao' solicitacao.id %}" class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                            <td>
+                                <a href="{% url 'solicitacoes:delete_solicitacao' solicitacao.id %}" class="btn btn-danger btn-sm ">Excluir</a>
+                            </td>
+                        </tr> 
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
