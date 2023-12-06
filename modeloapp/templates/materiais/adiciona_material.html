@@ -1,5 +1,32 @@
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Adicionar</button>
-</form>
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Adicionar Materiais - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>Adicionar Materiais</h1>
+                <form action="" method="POST" id="formMateriais">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.nome.id_for_label }}">Nome:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"type:text"}}
+                        <label for="{{ form.descricao.id_for_label }}">Descrição:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"type:text"}}
+                        <label for="{{ form.quantidade.id_for_label }}">Quantidade:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"type:text"}}
+                        <label for="{{ form.valorUnitario.id_for_label }}">ValorUnitario:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"type:text"}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}
