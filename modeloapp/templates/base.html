@@ -2,15 +2,17 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-    <title>{% block title %}Urbanizacao e Infraestrutura{% endblock title %}</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" />
+    <title>
+      {% block title %}Urbanizacao e Infraestrutura{% endblock title %}
+    </title>
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Urbanizacao e Infraestrutura</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +26,13 @@
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
                         <a class="dropdown-item" href="{% url 'avaliacao:add_avaliacao' %}">Avalie</a>
                         <a class="dropdown-item" href="{% url 'servicos:add_servico' %}">Serviços</a>
+                        <a class="dropdown-item" href="{% url 'endereco:add_endereco' %}">Endereço</a>
+                        <a class="dropdown-item" href="{% url 'solicitacoes:add_solicitacao' %}">Solicitações</a>
+                        <a class="dropdown-item" href="{% url 'endereco:add_categoria' %}"
+                >Categoria</a
+                        <a class="dropdown-item" href="{% url 'atendimento:add_atendimento' %}"
+                >Atendimento</a
+
                     </div>
                 </li>
             </ul>
@@ -45,13 +54,11 @@
         {% endif %}
     </nav>
 
-    {% block body %}
-    
-    {% endblock body %}
-    
+    {% block body %} {% endblock body %}
+
     <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
     <script src="{% static 'js/jquery.mask.min.js' %}"></script>
     <script src="{% static 'js/jquery-ui.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
+  </body>
 </html>
