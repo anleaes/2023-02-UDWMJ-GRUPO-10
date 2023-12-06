@@ -3,24 +3,24 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Cadastrar Endereço - {{ block.super}}
+
+    Cadastro de Endereço - {{ block.super }}
+
 {% endblock title %}
 
 {% block body %}
 
     <div class="container">
+        <br />
+    <h5><b>Cadastro de Endereço</b></h5>
         <div class="row">
-            <div class="col-12">
-            <h1>Cadastrar Endereço</h1>
-                <form action="" method="POST" id="formEndereco">
-                {% csrf_token %}
-                    <div class="form-group">
-                        <label for="{{ form.endereco.id_for_label }}">Logradouro:</label>
-                        {{ form.nota|add_class:"form-control"|attr:"placeholder:0 a 10" |attr:"type:text"|attr:"autofocus" }}
-                    </div>
-                    <button type="submit" class="btn btn-primary">Salvar</button>
+            <div class ="col-md-12">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Enviar</button>
                 </form>
             </div>
         </div>
     </div>
-    {% endblock body %}
+{% endblock body %}
