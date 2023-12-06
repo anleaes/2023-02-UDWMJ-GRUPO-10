@@ -27,6 +27,7 @@ urlpatterns = [
     path('endereco/', include('endereco.urls', namespace='endereco')),
     path('materiais/', include('materiais.urls', namespace='materiais')),
     path('solicitacoes/', include('solicitacoes.urls', namespace='solicitacoes')),
+    path('solicitante/', include('solicitante.urls', namespace='solicitante')),
     path('departamentos/', include('departamentos.urls', namespace='departamentos')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

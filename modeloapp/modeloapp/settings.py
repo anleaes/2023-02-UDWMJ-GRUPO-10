@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'servicos.apps.ServicosConfig',
     'materiais.apps.MateriaisConfig',
     'solicitacoes.apps.SolicitacoesConfig',
+    'solicitante.apps.SolicitanteConfig',
     'departamentos.apps.DepartamentosConfig',
 ]
 
