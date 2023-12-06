@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Adicionar Avaliação - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>Avaliação dos Serviços</h1>
+                <form action="" method="POST" id="formAvaliacao">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.nota.id_for_label }}">Nota:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"placeholder:0 a 10" |attr:"type:text"|attr:"autofocus" }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('formAvaliacao').addEventListener('submit', function(event) {
+            var notaInput = document.getElementById('{{ form.nota.id_for_label }}');
+            var nota = notaInput.value;
+    
+            // Verifica se a entrada é um número
+            if (isNaN(nota)) {
+                alert('Por favor, digite um número válido para a nota.');
+                event.preventDefault(); // Evita que o formulário seja enviado
+            } else {
+                // Verifica se a nota está no intervalo correto
+                nota = parseFloat(nota);
+                if (nota < 0 || nota > 10) {
+                    alert('A nota deve estar entre 0 e 10.');
+                    event.preventDefault(); // Evita que o formulário seja enviado
+                }
+            }
+        });
+    </script>
+    
+
+{% endblock body %}
