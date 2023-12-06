@@ -1,8 +1,8 @@
 from django import forms
-from .models import atendimento
+from .models import Atendimento
 
 class AtendimentoForm(forms.ModelForm):
 
     class Meta:
-        model = atendimento
+        model = Atendimento
         exclude = ('created_on' , 'updated_on',)

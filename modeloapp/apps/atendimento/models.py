@@ -23,7 +23,7 @@ class AtendimentoUser(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     atendimento = models.ForeignKey(Atendimento, on_delete=models.CASCADE)
-    user = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    username = models.ForeignKey(Usuario, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Usuário'
@@ -31,4 +31,4 @@ class AtendimentoUser(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.usuario.user
+        return self.usuario.username
