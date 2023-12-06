@@ -10,8 +10,21 @@ class Usuarios(models.Model):
 class Solicitacao(models.Model):
     usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
-#class Atendimento(models.Model):
-#    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    class Meta:
+        verbose_name = 'Usuarios'
+        verbose_name_plural = 'Contas de Usuarios'
+        ordering =['id']
+    
+class Atendimento(models.Model):
+    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = 'Usuarios'
+        verbose_name_plural = 'Contas de Usuarios'
+        ordering =['id']
+        
+class Solicitante(models.Model):
+    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Usuarios'
