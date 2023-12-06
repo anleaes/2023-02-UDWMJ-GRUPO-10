@@ -5,4 +5,4 @@ class AtendimentoForm(forms.ModelForm):
 
     class Meta:
         model = atendimento
-        
+        exclude = ('created_on' , 'updated_on',)

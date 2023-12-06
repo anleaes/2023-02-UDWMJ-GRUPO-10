@@ -27,7 +27,7 @@ urlpatterns = [
     path('endereco/', include('endereco.urls', namespace='endereco')),
     path('materiais/', include('materiais.urls', namespace='materiais')),
     path('categorias/', include('categorias.urls', namespace='categorias')),
-    path('atendimento/', include('atendimento.urls', namespace='atendimento')),
+    path('atendimentos/', include('atendimentos.urls', namespace='atendimentos')),
     path('solicitacoes/', include('solicitacoes.urls', namespace='solicitacoes')),
     path('departamentos/', include('deprtamentos.urls', namespace='departamentos')),
 ]
