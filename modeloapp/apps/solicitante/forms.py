@@ -1,5 +1,5 @@
 from django import forms
-from models import Solicitante
+from .models import Solicitante
 
 class SolicitanteForm(forms.ModelForm):
     class Meta:
