@@ -11,7 +11,7 @@ class Solicitacao(models.Model):
         ('gestao_de_residuos', 'Gestão de Resíduos'),
         ('servicos_de_utilidade_publica', 'Serviços de Utilidade Pública'),
     )
-    categoria = models.CharField('Categoria', max_length=25, choices=CATEGORIA_CHOICES)
+    categoria = models.CharField('Categoria', max_length=100, choices=CATEGORIA_CHOICES)
     descricao = models.TextField('Descrição', max_length=150) 
     solicitacao_endereco = models.ManyToManyField(Endereco, through='SolicitacaoEndereco', blank=True)
     
@@ -21,10 +21,10 @@ class Solicitacao(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return f'{self.categoria}, {self.descricao}, {self.solicitacao_endereco}'
+        return self.descricao
 
 
-class SoliciacaoEndereco(models.Model):
+class SolicitacaoEndereco(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     solicitacao = models.ForeignKey(Solicitacao, on_delete=models.CASCADE)
@@ -36,4 +36,4 @@ class SoliciacaoEndereco(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return f'{self.endereco.logradouro}, {self.endereco.bairro}, {self.endereco.numero} - {self.endereco.cep}.'
+        return self.endereco.logradouro, self.endereco.numero

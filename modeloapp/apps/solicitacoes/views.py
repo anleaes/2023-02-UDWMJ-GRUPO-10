@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import SolicitacaoForm
-from .models import Solicitacao, Endereco, SoliciacaoEndereco
+from .models import Solicitacao, Endereco, SolicitacaoEndereco
 
 # Create your views here.
 
@@ -20,7 +20,7 @@ def add_solicitacao(request):
 
 def list_solicitacoes(request):
     template_name = 'solicitacoes/list_solicitacoes.html'
-    solicitacao_endereco = SoliciacaoEndereco.objects.filter()
+    solicitacao_endereco = SolicitacaoEndereco.objects.filter()
     endereco = Endereco.objects.filter()
     solicitacao = Solicitacao.objects.filter()
     context = {
