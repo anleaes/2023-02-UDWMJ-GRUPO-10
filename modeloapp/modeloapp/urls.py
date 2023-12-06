@@ -25,6 +25,7 @@ urlpatterns = [
     path('avaliacao/', include('avaliacao.urls', namespace='avaliacao')),
     path('servicos/', include('servicos.urls', namespace='servicos')),
     path('endereco/', include('endereco.urls', namespace='endereco')),
+    path('materiais/', include('materiais.urls', namespace='materiais')),
     path('categorias/', include('categorias.urls', namespace='categorias')),
     path('atendimento/', include('atendimento.urls', namespace='atendimento')),
     path('solicitacoes/', include('solicitacoes.urls', namespace='solicitacoes')),
