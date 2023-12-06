@@ -15,13 +15,8 @@ class Solicitacao(models.Model):
         verbose_name_plural = 'Solicitacoes'
         ordering =['id']
     
-class Atendimento(models.Model):
-    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name = 'Atendimento'
-        verbose_name_plural = 'Atendimentos'
-        ordering =['id']
+#class Atendimento(models.Model):
+#    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
         
 class Solicitante(models.Model):
     usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
