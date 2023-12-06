@@ -3,7 +3,7 @@ from .forms import EnderecoForm
 
 # Create your views here.
 
-def endereco_view(request):
+def add_endereco(request):
     if request.method == 'POST':
         form = EnderecoForm(request.POST)
         if form.is_valid():
