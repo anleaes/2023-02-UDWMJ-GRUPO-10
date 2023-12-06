@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'endereco.apps.EnderecoConfig',
     'servicos.apps.ServicosConfig',
     'categorias.apps.CategoriasConfig',
+    'atendimento.apps.AtendimentoConfig'
 ]
 
 MIDDLEWARE = [
