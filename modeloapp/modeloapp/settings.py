@@ -49,8 +49,9 @@ INSTALLED_APPS = [
     'avaliacao.apps.AvaliacaoConfig',
     'endereco.apps.EnderecoConfig',
     'servicos.apps.ServicosConfig',
+    'solicitacoes.apps.SolicitacoesConfig',
     'categorias.apps.CategoriasConfig',
-    'atendimento.apps.AtendimentoConfig'
+    'atendimento.apps.AtendimentoConfig',
 ]
 
 MIDDLEWARE = [
