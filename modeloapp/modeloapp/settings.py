@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'solicitacoes.apps.SolicitacoesConfig',
     'categorias.apps.CategoriasConfig',
     'atendimento.apps.AtendimentoConfig',
+    'departamentos.apps.DepartamentosConfig',
 ]
 
 MIDDLEWARE = [
