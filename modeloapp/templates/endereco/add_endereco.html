@@ -1,16 +1,26 @@
-{% load static %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cadastro de Endereço</title>
-</head>
-<body>
-    <h1>Cadastro de Endereço</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+{% load widget_tweaks %}
+
+{% block title %}
+    Cadastrar Endereço - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>Cadastrar Endereço</h1>
+                <form action="" method="POST" id="formEndereco">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.endereco.id_for_label }}">Logradouro:</label>
+                        {{ form.nota|add_class:"form-control"|attr:"placeholder:0 a 10" |attr:"type:text"|attr:"autofocus" }}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endblock body %}
