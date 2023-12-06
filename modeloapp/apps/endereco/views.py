@@ -11,4 +11,4 @@ def add_endereco(request):
             return render(request, 'success.html')
     else:
         form = EnderecoForm()
-    return render(request, 'endereco.html', {'form': form})
+    return render(request, 'add_endereco.html', {'form': form})
