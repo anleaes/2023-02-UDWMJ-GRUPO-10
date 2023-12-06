@@ -5,7 +5,7 @@ from .models import Solicitacao, Endereco, SolicitacaoEndereco
 # Create your views here.
 
 def add_solicitacao(request):
-    template_name = 'solicitacao/add_solicitacao.html'
+    template_name = 'solicitacoes/add_solicitacao.html'
     context = {}
     if request.method == 'POST':
         form = SolicitacaoForm(request.POST)
