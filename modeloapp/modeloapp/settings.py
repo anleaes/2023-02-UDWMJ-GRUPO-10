@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'usuarios.apps.UsuariosConfig',
     'avaliacao.apps.AvaliacaoConfig',
+    'endereco.apps.EnderecoConfig',
     'servicos.apps.ServicosConfig',
 ]
 
