@@ -8,25 +8,25 @@ class Usuarios(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 class Solicitacao(models.Model):
-    solicitacao_usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
     class Meta:
-        verbose_name = 'Usuarios'
-        verbose_name_plural = 'Contas de Usuarios'
+        verbose_name = 'Solicitacao'
+        verbose_name_plural = 'Solicitacoes'
         ordering =['id']
     
 class Atendimento(models.Model):
-    atendimento_usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
     class Meta:
-        verbose_name = 'Usuarios'
-        verbose_name_plural = 'Contas de Usuarios'
+        verbose_name = 'Atendimento'
+        verbose_name_plural = 'Atendimentos'
         ordering =['id']
         
 class Solicitante(models.Model):
-    solicitante_usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
     class Meta:
-        verbose_name = 'Usuarios'
-        verbose_name_plural = 'Contas de Usuarios'
+        verbose_name = 'Solicitante'
+        verbose_name_plural = 'Solicitantes'
         ordering =['id']
