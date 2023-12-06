@@ -20,14 +20,14 @@ def add_servico(request):
     return render(request, template_name, context)
 
 def list_servicos(request):
-    template_name = 'servicos/list_servicos.html'
+    template_name = 'Servicos/list_servicos.html'
     servicos = Servico.objects.filter()
     context = {
         'servicos': servicos,
     }
     return render(request, template_name, context)
 
-def edit_servicos(request, id_servico):
+def edit_servico(request, id_servico):
     template_name = 'servicos/add_servico.html'
     context ={}
     servico = get_object_or_404(Servico, id=id_servico)
