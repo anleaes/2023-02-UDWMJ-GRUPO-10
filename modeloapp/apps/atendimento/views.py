@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import AtendimentoForm
-from .models import Atendimento, Usuario, AtendimentoUser
+from .models import Atendimento, Usuarios, AtendimentoUser
 
 # Create your views here.
 
@@ -21,7 +21,7 @@ def add_atendimento(request):
 def list_atendimentos(request):
     template_name = 'atendimento/list_atendimentos.html'
     atendimento_user = AtendimentoUser.objects.filter()
-    user = Usuario.objects.filter()
+    user = Usuarios.objects.filter()
     atendimentos = Atendimento.objects.filter()
     context = {
         'atendimento': atendimentos,

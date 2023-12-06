@@ -1,5 +1,5 @@
 from django.db import models
-from usuarios.models import Usuario
+from usuarios.models import Usuarios
 
 class Atendimento(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
@@ -8,7 +8,7 @@ class Atendimento(models.Model):
     data = models.DateField(verbose_name='Data')
     hora = models.TimeField(verbose_name='Hora')
 
-    atendimento_user = models.ManyToManyField(Usuario, through='AtendimentoUser', blank=True)
+    atendimento_user = models.ManyToManyField(Usuarios, through='AtendimentoUser', blank=True)
     
     class Meta:
         verbose_name = 'Atendimento'
@@ -23,7 +23,7 @@ class AtendimentoUser(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     atendimento = models.ForeignKey(Atendimento, on_delete=models.CASCADE)
-    username = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    user = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Usuário'
@@ -31,4 +31,4 @@ class AtendimentoUser(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.usuario.username
+        return self.usuario.user
