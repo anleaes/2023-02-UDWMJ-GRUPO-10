@@ -10,8 +10,8 @@ class Usuarios(models.Model):
 class Solicitacao(models.Model):
     usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
-class Atendimento(models.Model):
-    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+#class Atendimento(models.Model):
+#    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Usuarios'
