@@ -14,3 +14,6 @@ class AvaliacaoModel:
 
     def avaliar(self):
         return f'Avaliação: {self.nota}'
+    
+class Servicos(models.Model):
+    avaliacao = models.ForeignKey(Avaliacao, on_delete=models.CASCADE)

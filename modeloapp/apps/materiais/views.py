@@ -1,13 +1,11 @@
 from django.shortcuts import render, redirect
 
-from modeloapp.apps.materiais.models import Materiais
-
 # Create your views here.
 
 from .forms import MateriaisForm
 
 def lista_materiais(request):
-    materiais = Materiais.objects.all()
+    materiais = MateriaisForm.objects.all()
     return render(request, 'materiais/lista_materiais.html', {'materiais': materiais})
 
 def adiciona_material(request):
