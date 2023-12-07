@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .forms import SolicitanteForm
 from .models import Solicitante
 
@@ -20,10 +20,23 @@ def add_solicitante(request):
 
 def list_solicitantes(request):
     template_name = 'solicitante/list_solicitantes.html'
-    cpf = Solicitante.objects.filter()
+    solicitantes = Solicitante.objects.all()
     context = {
-        'cpf': cpf,
+        'solicitantes': solicitantes,
     }
+    return render(request, template_name, context)
+
+def edit_solicitante(request, id_solicitante):
+    template_name = 'solicitante/add_solicitante.html'
+    context ={}
+    solicitante = get_object_or_404(Solicitante, id=id_solicitante)
+    if request.method == 'POST':
+        form = SolicitanteForm(request.POST, instance=solicitante)
+        if form.is_valid():
+            form.save()
+            return redirect('solicitante:list_solicitante')
+    form = SolicitanteForm(instance=solicitante)
+    context['form'] = form
     return render(request, template_name, context)
 
 def delete_solicitante(request, id_solicitante):
