@@ -11,6 +11,11 @@ class Usuarios(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     soliciante = models.ForeignKey(Solicitante, on_delete=models.CASCADE)
     solicitacao = models.ForeignKey(Solicitacao, on_delete=models.CASCADE)
+    
+    class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
+        ordering =['id']
 
 #class Atendimento(models.Model):
 #    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
