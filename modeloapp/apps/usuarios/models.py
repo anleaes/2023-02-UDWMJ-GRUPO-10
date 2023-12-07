@@ -1,6 +1,8 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from solicitacoes.models import Solicitacao
+from solicitante.models import Solicitante
 
 # Create your models here.
 
