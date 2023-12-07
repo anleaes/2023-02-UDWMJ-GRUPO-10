@@ -4,7 +4,7 @@ from django.db import models
 
 class Departamento(models.Model):
     nome = models.CharField('Nome', max_length=50)
-    descricao = models.TextField('Descricao', max_length=80, default='Nulo') 
+    descricao = models.TextField('Descricao', max_length=80, default='---') 
     
     class Meta:
         verbose_name = 'Departamento'

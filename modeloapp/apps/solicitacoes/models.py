@@ -7,7 +7,7 @@ from solicitante.models import Solicitante
 class Solicitacao(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
-    cpf = models.ForeignKey(Solicitante, on_delete=models.CASCADE)
+    cpf = models.ForeignKey(Solicitante, on_delete=models.CASCADE, default='1')
     CATEGORIA_CHOICES = (
         ('manutencao_de_infraestrutura_urbana', 'Manutenção de Infraestrutura Urbana'),
         ('gestao_de_residuos', 'Gestão de Resíduos'),
@@ -15,7 +15,7 @@ class Solicitacao(models.Model):
     )
     categoria = models.CharField('Categoria', max_length=100, choices=CATEGORIA_CHOICES)
     descricao = models.TextField('Descrição', max_length=150) 
-    localizacao = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+    localizacao = models.ForeignKey(Endereco, on_delete=models.CASCADE, default='1')
     
     class Meta:
         verbose_name = 'Solicitacao'
