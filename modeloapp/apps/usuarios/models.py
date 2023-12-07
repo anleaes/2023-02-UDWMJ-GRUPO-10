@@ -1,23 +1,12 @@
-
 from django.db import models
-from django.contrib.auth.models import User
-from solicitante.models import Solicitante
-from solicitacoes.models import Solicitacao
+from django.contrib.auth.models import AbstractUser
 
 
 # Create your models here.
 
-class Usuarios(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    soliciante = models.ForeignKey(Solicitante, on_delete=models.CASCADE)
-    solicitacao = models.ForeignKey(Solicitacao, on_delete=models.CASCADE)
-    
-    class Meta:
-        verbose_name = 'Usuario'
-        verbose_name_plural = 'Usuarios'
-        ordering =['id']
-
-#class Atendimento(models.Model):
-#    usuario = models.ForeignKey(Usuarios, on_delete=models.CASCADE)
+class Usuario(AbstractUser):
+    id = models.AutoField(primary_key=True)
+    email = models.EmailField(max_length=254, unique=True)
+    senha = models.CharField(max_length=128)
         
 
