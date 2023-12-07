@@ -1,10 +1,7 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario
+from .models import Usuarios
 
-class RegistroForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Requerido. Informe um endereço de e-mail válido.')
-
+class UsuariosForm(forms.ModelForm):
     class Meta:
-        model = Usuario
-        fields = ('username', 'email', 'password1', 'password2')
+        model = Usuarios
+        fields = ['id', 'email', 'senha']
