@@ -10,9 +10,9 @@ class Endereco(models.Model):
     complemento = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:
-            verbose_name = 'Serviço'
-            verbose_name_plural = 'Serviços'
-            ordering =['id']
-
+        verbose_name = 'Endereço'
+        verbose_name_plural = 'Endereços'
+        ordering =['id']
+    
     def __str__(self):
-            return "Rua %s Cep %s" % (self.logradouro, self.cep) 
+        return "Rua %s Cep %s" % (self.logradouro, self.cep) 
