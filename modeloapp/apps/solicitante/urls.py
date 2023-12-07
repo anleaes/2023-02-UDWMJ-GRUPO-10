@@ -4,5 +4,7 @@ from . import views
 app_name = 'solicitante'
 
 urlpatterns = [
-    path('solicitante/', views.add_solicitante, name='add_solicitante'),
+    path('solicitante/', views.list_solicitantes, name='list_solicitantes'),
+    path('adicionar/', views.add_solicitante, name='add_solicitante'),
+    path('excluir/<int:id_solicitante>/', views.delete_solicitante, name='delete_solicitante'),
 ]
