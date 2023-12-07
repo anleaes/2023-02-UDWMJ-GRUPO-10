@@ -24,7 +24,6 @@
                     <th scope="col">Solicitante</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Descrição</th>
-                    <th scope="col">Endereco</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
@@ -43,13 +42,6 @@
                                 {% endfor %}
                             </td>
                             
-                            <td>
-                                {% for localizacao in localizacoes %}
-                                    {% if localizacao.solicitacao_id == solicitacao.id %}
-                                        <li>{{ endereco.rua }} {{ endereco.numero }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </td>
                             <td>
                                 <a href="{% url 'solicitacoes:delete_solicitacao' solicitacao.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>
