@@ -41,6 +41,8 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.get_full_name|default:user.username }}</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown05">
+                        <a class="dropdown-item" href="{% url 'usuarios:modificar_informacoes' user.username %}">Alterar Informações</a>
+                        <a class="dropdown-item" href="{% url 'usuarios:sair' %}">Sair</a>
                     </div>
                 </li>
             </ul>
