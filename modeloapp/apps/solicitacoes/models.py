@@ -1,5 +1,4 @@
 from django.db import models
-from endereco.models import Endereco
 from solicitante.models import Solicitante
 
 # Create your models here.
@@ -15,7 +14,6 @@ class Solicitacao(models.Model):
     )
     categoria = models.CharField('Categoria', max_length=100, choices=CATEGORIA_CHOICES)
     descricao = models.TextField('Descrição', max_length=150) 
-    localizacao = models.ForeignKey(Endereco, on_delete=models.CASCADE, default='1')
     
     class Meta:
         verbose_name = 'Solicitacao'
