@@ -15,4 +15,4 @@ class Endereco(models.Model):
             ordering =['id']
 
     def __str__(self):
-            return "Rua %s Cep %s" % (self.logradouroo, self.cep) 
+            return "Rua %s Cep %s" % (self.logradouro, self.cep) 
