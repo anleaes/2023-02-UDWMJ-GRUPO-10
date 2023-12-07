@@ -1,5 +1,6 @@
 from django.db import models
 from solicitante.models import Solicitante
+from django import forms
 
 class Usuarios(models.Model):
     usuarios = models.CharField('Usuario', max_length=50)
@@ -29,3 +30,6 @@ class UsuariosSolicitante(models.Model):
 
     def __str__(self):
         return self.solicitante.nome
+    
+class LogoutForm(forms.Form):
+    pass

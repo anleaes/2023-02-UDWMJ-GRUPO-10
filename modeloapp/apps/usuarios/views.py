@@ -1,6 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import UsuariosForm
+from .forms import UsuariosForm, LogoutForm
 from .models import Usuarios, Solicitante, UsuariosSolicitante
+
+def logout(request):
+    if request.method == 'POST':
+        form = LogoutForm(request.POST)
+        if form.is_valid():
+            request.session.flush()
+            return redirect('index')
+    else:
+        form = LogoutForm()
+    return render(request, 'logout.html', {'form': form})
 
 def add_usuarios(request):
     template_name = 'usuarios/add_usuarios.html'
