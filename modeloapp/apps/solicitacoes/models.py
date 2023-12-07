@@ -1,5 +1,6 @@
 from django.db import models
 from endereco.models import Endereco
+from solicitante.models import Solicitante
 
 # Create your models here.
 
@@ -37,3 +38,5 @@ class SolicitacaoEndereco(models.Model):
 
     def __str__(self):
         return self.endereco.logradouro, self.endereco.numero
+    
+    
