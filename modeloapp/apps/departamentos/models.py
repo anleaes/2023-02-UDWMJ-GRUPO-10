@@ -6,7 +6,7 @@ class Departamento(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     nome = models.CharField('Nome', max_length=50)
-    description = models.TextField('Descricao', max_length=100) 
+    descricao = models.TextField('Descricao', max_length=80, default='Nulo') 
     
     class Meta:
         verbose_name = 'Departamento'

@@ -1,70 +1,51 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.forms import PasswordChangeForm
-from .forms import UserForm, UserChangeInformationForm
+from django.contrib import messages
+from .forms import UsuarioCreationForm, UsuarioChangeForm
 
-# Create your views here.
-
-def add_user(request):
-    template_name = 'usuarios/add_user.html'
-    context = {}
-    if request.method =='POST':
-        form = UserForm(request.POST)
+def registrar(request):
+    if request.method == 'POST':
+        form = UsuarioCreationForm(request.POST)
         if form.is_valid():
-            f = form.save(commit=False)
-            f.set_password(f.password)
-            f.save()
-            return redirect('usuarios:user_login')
-        else:
-            return redirect('usuarios:add_user')
-    form = UserForm()
-    context['form'] = form
-    return render(request, template_name, context)   
+            form.save()
+            messages.success(request, 'Conta criada com sucesso!')
+            return redirect('login')
+    else:
+        form = UsuarioCreationForm()
+    return render(request, 'registrar.html', {'form': form})
 
-def user_login(request):
-    template_name = 'usuarios/user_login.html'
-    if request.method =='POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(username=username, password=password)
+def entrar(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        senha = request.POST['senha']
+        user = authenticate(request, email=email, senha=senha)
         if user is not None:
             login(request, user)
-            return redirect(request.GET.get('next', '/'))
+            messages.success(request, 'Login bem-sucedido!')
+            return redirect('dashboard')
         else:
-            return redirect('usuarios:user_login')
-    return render(request, template_name, {})
+            messages.error(request, 'Credenciais inválidas. Tente novamente.')
+    return render(request, 'entrar.html')
 
-@login_required(login_url='/contas/login/')
-def user_logout(request):
+@login_required
+def sair(request):
     logout(request)
-    return redirect('usuarios:user_login')
+    messages.success(request, 'Logout bem-sucedido!')
+    return redirect('login')
 
-@login_required(login_url='/contas/login/')
-def user_change_password(request):
-    template_name = 'usuarios/user_change_password.html'
-    context = {}
+@login_required
+def dashboard(request):
+    return render(request, 'dashboard.html')
+
+@login_required
+def modificar_informacoes(request):
     if request.method == 'POST':
-        form = PasswordChangeForm(user=request.user, data=request.POST)
+        form = UsuarioChangeForm(request.POST, instance=request.user)
         if form.is_valid():
             form.save()
-            update_session_auth_hash(request, form.user)
-        else:
-            return redirect('usuarios:user_login')
-    form = PasswordChangeForm(user=request.user)
-    context['form'] = form
-    return render(request, template_name, context)
-
-@login_required(login_url='/contas/login/')
-def user_change_information(request, username):
-    template_name = 'usuarios/user_change_information.html'
-    context = {}
-    user = User.objects.get(username=username)
-    if request.method == 'POST':
-        form = UserChangeInformationForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-    form = UserChangeInformationForm(instance=user)
-    context['form'] = form
-    return render(request, template_name, context)
+            messages.success(request, 'Informações do usuário modificadas com sucesso!')
+            return redirect('dashboard')
+    else:
+        form = UsuarioChangeForm(instance=request.user)
+    return render(request, 'modificar_informacoes.html', {'form': form})
