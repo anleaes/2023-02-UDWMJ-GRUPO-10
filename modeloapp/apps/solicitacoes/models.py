@@ -7,6 +7,7 @@ from solicitante.models import Solicitante
 class Solicitacao(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    cpf = models.ForeignKey(Solicitante, on_delete=models.CASCADE)
     CATEGORIA_CHOICES = (
         ('manutencao_de_infraestrutura_urbana', 'Manutenção de Infraestrutura Urbana'),
         ('gestao_de_residuos', 'Gestão de Resíduos'),
@@ -14,7 +15,7 @@ class Solicitacao(models.Model):
     )
     categoria = models.CharField('Categoria', max_length=100, choices=CATEGORIA_CHOICES)
     descricao = models.TextField('Descrição', max_length=150) 
-    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
+    localizacao = models.ForeignKey(Endereco, on_delete=models.CASCADE)
     
     class Meta:
         verbose_name = 'Solicitacao'
@@ -22,4 +23,4 @@ class Solicitacao(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.descricao
+        return "%s" % (self.descricao)
