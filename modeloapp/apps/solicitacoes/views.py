@@ -26,7 +26,7 @@ def list_solicitacoes(request):
     context = {
         'solicitacao': solicitacao,
         'endereco': endereco,
-        'solicitacao_endereco': solicitacao_endereco
+        'solicitacao_endereco': solicitacao_endereco,
     }
     return render(request, template_name, context)
 
