@@ -21,10 +21,10 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Cpf Solicitante</th>
                     <th scope="col">Categoria</th>
                     <th scope="col">Descrição</th>
                     <th scope="col">Endereco</th>
-                    <th scope="col"></th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
@@ -36,14 +36,19 @@
                             <td>{{ solicitacao.categoria }}</td>
                             <td>{{ solicitacao.descricao }}</td>
                             <td>
-                                {% for solicitacao_endereco in solicitacao_enderecos %}
-                                    {% if solicitacao_endereco.solicitacao_id == solicitacao.id %}
-                                        <li>{{ solicitacao_endereco.endereco }}</li>
+                                {% for cpf in cpfs %}
+                                    {% if cpf.solicitacao_id == solicitacao.id %}
+                                        <li>{{ solicitante.cpf }}</li>
                                     {% endif %}
                                 {% endfor %}
                             </td>
+                            
                             <td>
-                                <a href="{% url 'solicitacoes:edit_solicitacao' solicitacao.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                {% for localizacao in localizacoes %}
+                                    {% if localizacao.solicitacao_id == solicitacao.id %}
+                                        <li>{{ endereco.rua }} {{ endereco.numero }}</li>
+                                    {% endif %}
+                                {% endfor %}
                             </td>
                             <td>
                                 <a href="{% url 'solicitacoes:delete_solicitacao' solicitacao.id %}" class="btn btn-danger btn-sm ">Excluir</a>
