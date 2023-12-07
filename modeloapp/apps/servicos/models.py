@@ -26,9 +26,9 @@ class Servico(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='pendente')
 
     class Meta:
-            verbose_name = 'Serviço'
-            verbose_name_plural = 'Serviços'
-            ordering =['id']
+        verbose_name = 'Serviço'
+        verbose_name_plural = 'Serviços'
+        ordering =['id']
 
     def __str__(self):
-          return self.descricao
+        return self.descricao
