@@ -34,7 +34,7 @@ def edit_solicitante(request, id_solicitante):
         form = SolicitanteForm(request.POST, instance=solicitante)
         if form.is_valid():
             form.save()
-            return redirect('solicitante:list_solicitante')
+            return redirect('solicitante:list_solicitantes')
     form = SolicitanteForm(instance=solicitante)
     context['form'] = form
     return render(request, template_name, context)
