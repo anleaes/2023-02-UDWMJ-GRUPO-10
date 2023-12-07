@@ -1,11 +1,13 @@
 from django.db import models
 from endereco.models import Endereco
+from solicitante.models import Solicitante
 
 # Create your models here.
 
 class Solicitacao(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    solicitante_nome = models.ManyToManyField(Solicitante, through='NomeSolicitante', blank=True)
     CATEGORIA_CHOICES = (
         ('manutencao_de_infraestrutura_urbana', 'Manutenção de Infraestrutura Urbana'),
         ('gestao_de_residuos', 'Gestão de Resíduos'),
@@ -37,3 +39,18 @@ class SolicitacaoEndereco(models.Model):
 
     def __str__(self):
         return self.endereco.logradouro, self.endereco.numero
+    
+    class NomeSolicitante(models.Model):
+        created_on = models.DateTimeField(auto_now_add=True)
+        updated_on = models.DateTimeField(auto_now=True)
+        solicitacao = models.ForeignKey(Solicitacao, on_delete=models.CASCADE)
+        nome = models.ForeignKey(Solicitante, on_delete=models.CASCADE)
+
+        class Meta:
+            verbose_name = 'Solicitante'
+            verbose_name_plural = 'Solicitantes'
+            ordering =['id']
+
+        def __str__(self):
+            return self.solicitante.nome
+    
