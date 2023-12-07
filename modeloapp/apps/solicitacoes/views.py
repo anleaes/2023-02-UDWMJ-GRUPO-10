@@ -28,7 +28,7 @@ def list_solicitacoes(request):
     context = {
         'cpf': cpf,
         'categoria' : categoria,
-        'dscricao' : descricao,
+        'descricao' : descricao,
         'localizacao': localizacao,
     }
     return render(request, template_name, context)
