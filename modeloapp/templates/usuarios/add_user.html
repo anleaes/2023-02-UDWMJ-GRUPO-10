@@ -15,12 +15,8 @@
                 <form action="" method="POST">
                 {% csrf_token %}
                     <div class="form-group">
-                        <label for="{{ form.first_name.id_for_label }}">Nome</label>
-                        {{ form.first_name|add_class:"form-control"|attr:"autofocus" }}
-                    </div>
-                    <div class="form-group">
-                        <label for="{{ form.last_name.id_for_label }}">Sobrenome</label>
-                        {{ form.last_name|add_class:"form-control" }}
+                        <label for="{{ form.solicitacao.id_for_label }}">Solicitacao</label>
+                        {{ form.solicitacao|add_class:"form-control" }}
                     </div>
                     <div class="form-group">
                         <label for="{{ form.username.id_for_label }}">Nome de usuario</label>
