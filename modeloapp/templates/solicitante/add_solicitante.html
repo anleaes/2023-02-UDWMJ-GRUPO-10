@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+    Adicionar Solicitante - {{ block.super}}
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h1>Solicitante</h1>
+                <form action="" method="POST">
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="{{ form.cpf.id_for_label }}">CPF:</label>
+                        {{ form.cpf|add_class:"form-control"|attr:"type:text"}}
+                    </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

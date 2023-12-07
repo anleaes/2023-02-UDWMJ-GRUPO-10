@@ -8,9 +8,10 @@ class Materiais(models.Model):
     quantidade = models.IntegerField()
     valorUnitario = models.FloatField()
 
+    class Meta:
+        verbose_name = 'Material'
+        verbose_name_plural = 'Materiais'
+        ordering =['id']
+
     def __str__(self):
         return self.nome
-
-    def materiaisNecessarios(self):
-        materiais = Materiais.objects.all()
-        return materiais

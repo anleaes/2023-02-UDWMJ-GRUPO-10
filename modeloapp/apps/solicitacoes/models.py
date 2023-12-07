@@ -1,11 +1,13 @@
 from django.db import models
 from endereco.models import Endereco
+from solicitante.models import Solicitante
 
 # Create your models here.
 
 class Solicitacao(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
+    cpf = models.ForeignKey(Solicitante, on_delete=models.CASCADE, default='1')
     CATEGORIA_CHOICES = (
         ('manutencao_de_infraestrutura_urbana', 'Manutenção de Infraestrutura Urbana'),
         ('gestao_de_residuos', 'Gestão de Resíduos'),
@@ -13,7 +15,7 @@ class Solicitacao(models.Model):
     )
     categoria = models.CharField('Categoria', max_length=100, choices=CATEGORIA_CHOICES)
     descricao = models.TextField('Descrição', max_length=150) 
-    solicitacao_endereco = models.ManyToManyField(Endereco, through='SolicitacaoEndereco', blank=True)
+    localizacao = models.ForeignKey(Endereco, on_delete=models.CASCADE, default='1')
     
     class Meta:
         verbose_name = 'Solicitacao'
@@ -21,19 +23,4 @@ class Solicitacao(models.Model):
         ordering =['id']
 
     def __str__(self):
-        return self.descricao
-
-
-class SolicitacaoEndereco(models.Model):
-    created_on = models.DateTimeField(auto_now_add=True)
-    updated_on = models.DateTimeField(auto_now=True)
-    solicitacao = models.ForeignKey(Solicitacao, on_delete=models.CASCADE)
-    endereco = models.ForeignKey(Endereco, on_delete=models.CASCADE)
-
-    class Meta:
-        verbose_name = 'Endereco'
-        verbose_name_plural = 'Enderecos'
-        ordering =['id']
-
-    def __str__(self):
-        return self.endereco.logradouro, self.endereco.numero
+        return "%s" % (self.descricao)
