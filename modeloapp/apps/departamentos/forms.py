@@ -5,4 +5,4 @@ class DepartamentoForm(forms.ModelForm):
 
     class Meta:
         model = Departamento
-        exclude = ('')
+        exclude = ('',)
