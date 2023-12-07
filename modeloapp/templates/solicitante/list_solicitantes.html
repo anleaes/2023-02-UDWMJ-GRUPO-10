@@ -21,8 +21,8 @@
                 <thead>
                     <tr>
                     <th scope="col">#</th>
-                    <th scope="col">CPF</th>
                     <th scope="col"></th>
+                    <th scope="col">CPF</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                     </tr>
@@ -31,7 +31,7 @@
                     {% for solicitante in solicitantes %}
                         <tr>
                             <th scope="row">{{ solicitante.id }}</th>
-                            <td>{{ client.cpf }}</td>
+                            <td>{{ solicitante.cpf }}</td>
                             <td>
                                 <a href="{% url 'solicitante:delete_solicitante' solicitante.id %}" class="btn btn-danger btn-sm ">Excluir</a>
                             </td>

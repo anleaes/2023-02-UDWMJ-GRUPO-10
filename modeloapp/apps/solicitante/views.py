@@ -13,7 +13,7 @@ def add_solicitante(request):
             f = form.save(commit=False)
             f.save()
             form.save_m2m()
-            return redirect('solicitante:add_solicitante')
+            return redirect('solicitante:list_solicitantes')
     form = SolicitanteForm()
     context['form'] = form
     return render(request, template_name, context)
