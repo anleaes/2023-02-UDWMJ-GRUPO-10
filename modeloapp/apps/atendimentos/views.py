@@ -4,7 +4,7 @@ from .models import Atendimento, Solicitacao
 # Create your views here.
 
 def add_atendimento(request):
-    template_name = 'atendimento/add_atendimento.html'
+    template_name = 'atendimentos/add_atendimento.html'
     context = {}
     if request.method == 'POST':
         form = AtendimentoForm(request.POST)

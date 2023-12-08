@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}
+
+    Cadastrar Atendimento - {{ block.super }}
+
+{% endblock title %}
+
+{% block body %}
+
+    <div class="container">
+        <br />
+    <h5><b>Cadastro de Atendimento</b></h5>
+        <div class="row">
+            <div class ="col-md-12">
+                <form action="" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                   <label for="{{ form.id_solicitacao.id_for_label }}">Id da Solicitação</label>
+                   {{ form.id_solicitacao|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.data.id_for_label }}">Data</label>
+                    {{ form.data|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.hora.id_for_label }}">Hora</label>
+                    {{ form.hora|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                  <label for="{{ form.departamento.id_for_label }}">Departamento</label>
+                  {{ form.departamento|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.rua.id_for_label }}">Rua</label>
+                    {{ form.rua|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.numero.id_for_label }}">Número</label>
+                    {{ form.numero|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.bairro.id_for_label }}">Bairro</label>
+                    {{ form.bairro|add_class:"form-control" }}
+                </div>
+                <div class="form-group">
+                    <label for="{{ form.complemento.id_for_label }}">Complemento</label>
+                    {{ form.complemento|add_class:"form-control" }}
+                </div>
+                    <button type="submit" class="btn btn-primary">Salvar</button>       
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock body %}
