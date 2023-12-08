@@ -11,7 +11,7 @@ def add_solicitacao(request):
         form = SolicitacaoForm(request.POST)
         if form.is_valid():
             f = form.save(commit=False)
-            f.cpf = Solicitante.objects.get(id=id_solicitante)
+            #f.cpf = Solicitante.objects.get(id=id_solicitante)
             f.save()
             form.save_m2m()
             return redirect('solicitacoes:list_solicitacoes')
