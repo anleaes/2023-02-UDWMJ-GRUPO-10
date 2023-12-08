@@ -4,7 +4,7 @@ from .models import Solicitacao, Endereco, Solicitante
 
 # Create your views here.
 
-def add_solicitacao(request, id_solicitante):
+def add_solicitacao(request):
     template_name = 'solicitacoes/add_solicitacao.html'
     context = {}
     if request.method == 'POST':
